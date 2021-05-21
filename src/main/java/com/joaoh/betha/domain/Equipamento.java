@@ -1,11 +1,9 @@
 package com.joaoh.betha.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.joaoh.betha.domain.enums.TipoEquipamento;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -20,13 +18,19 @@ public class Equipamento implements Serializable {
     private Integer tipo;
     private String marca;
 
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")
+    private Cliente cliente;
+
     public Equipamento() {}
 
-    public Equipamento(Integer id, String nome, TipoEquipamento tipo, String marca) {
+    public Equipamento(Integer id, String nome, TipoEquipamento tipo, String marca, Cliente cliente) {
         this.id = id;
         this.nome = nome;
         this.tipo = (tipo == null) ? null : tipo.getCod();
         this.marca = marca;
+        this.cliente = cliente;
     }
 
     public Integer getId() {
@@ -59,6 +63,14 @@ public class Equipamento implements Serializable {
 
     public void setMarca(String marca) {
         this.marca = marca;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     @Override
