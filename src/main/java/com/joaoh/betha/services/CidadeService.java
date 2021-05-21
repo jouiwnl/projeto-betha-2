@@ -1,33 +1,33 @@
 package com.joaoh.betha.services;
 
+import com.joaoh.betha.domain.Cidade;
 import com.joaoh.betha.domain.Equipamento;
+import com.joaoh.betha.repositories.CidadeRepository;
 import com.joaoh.betha.repositories.EquipamentoRepository;
 import com.joaoh.betha.services.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class EquipametoService {
+public class CidadeService {
 
     @Autowired
-    private EquipamentoRepository repo;
+    private CidadeRepository repo;
 
 
-    public List<Equipamento> findAll() {
+    public List<Cidade> findAll() {
         return repo.findAll();
     }
 
-    public Equipamento find(Integer id) {
-        Optional<Equipamento> obj = repo.findById(id);
+    public Cidade find(Integer id) {
+        Optional<Cidade> obj = repo.findById(id);
         return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
     }
 
-    public Equipamento insert(Equipamento obj) {
+    public Cidade insert(Cidade obj) {
         obj.setId(null);
         return repo.save(obj);
     }
