@@ -1,0 +1,17 @@
+[33mcommit 8ca17585a208a7e278b3f2190230c79789cc4a2b[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: João Henrique <jou.098olo@gmail.com>
+Date:   Fri May 21 12:23:34 2021 -0300
+
+    criados endpoints para Clientes e seus respectivos endereços
+
+[33mcommit 2f2b5de28a2cfdb3c140d0064d377c0791c81f40[m
+Author: João Henrique <jou.098olo@gmail.com>
+Date:   Fri May 21 11:48:34 2021 -0300
+
+    Endpoints de cidade e estado disponibilizados (metodos de procura)
+
+[33mcommit 5d14ce24c320f0c4365730affe2207eabcd74fa4[m
+Author: João Henrique <jou.098olo@gmail.com>
+Date:   Fri May 21 11:28:06 2021 -0300
+
+    first commit

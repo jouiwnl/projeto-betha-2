@@ -3,10 +3,17 @@ package com.joaoh.betha.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.joaoh.betha.domain.enums.TipoEquipamento;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
+@Getter
+@Setter
+@EqualsAndHashCode
 @Entity
 public class Equipamento implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -33,22 +40,7 @@ public class Equipamento implements Serializable {
         this.cliente = cliente;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
+    
     public TipoEquipamento getTipoEquipamento() {
         return TipoEquipamento.toEnum(tipo);
     }
@@ -57,32 +49,4 @@ public class Equipamento implements Serializable {
         this.tipo = tipoEquipamento.getCod();
     }
 
-    public String getMarca() {
-        return marca;
-    }
-
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Equipamento that = (Equipamento) o;
-        return id.equals(that.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
 }
