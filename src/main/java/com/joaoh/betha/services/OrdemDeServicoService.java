@@ -19,20 +19,4 @@ public class OrdemDeServicoService {
     @Autowired
     private OrdemDeServicoRepository repo;
 
-
-    public List<OrdemDeServico> findAll() {
-        return repo.findAll();
-    }
-
-    public OrdemDeServico find(Integer id) {
-        Optional<OrdemDeServico> obj = repo.findById(id);
-        return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
-    }
-
-    public OrdemDeServico insert(OrdemDeServico obj) {
-        obj.setId(null);
-        return repo.save(obj);
-    }
-
-
 }

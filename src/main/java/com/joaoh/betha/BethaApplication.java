@@ -52,23 +52,31 @@ public class BethaApplication implements CommandLineRunner {
 		//
 		//
 		Cliente cli1 = new Cliente(null,"João Henrique","988457865","jou.098olo@gmail.com");
-		clienteRepository.saveAll(Arrays.asList(cli1));
-		//
-		//
-		Equipamento e1 = new Equipamento(null, "Celular Samsung", TipoEquipamento.ELETRONICO,"Samsung", cli1);
-		Equipamento e2 = new Equipamento(null, "LG K10", TipoEquipamento.ELETRONICO,"LG", cli1);
-		equipamentoRepository.saveAll(Arrays.asList(e1, e2));
-		cli1.getEquipamentos().addAll(Arrays.asList(e1, e2));
+		Cliente cli2 = new Cliente(null,"Tauan","123456789","tauan@gmail.com");
+		clienteRepository.saveAll(Arrays.asList(cli1, cli2));
 		//
 		//
 		Endereco end1 = new Endereco(null,"Rua 1","13","Casa Azul","Santa Augusta","88805412",cid1, cli1);
+		Endereco end2 = new Endereco(null,"Rua 2","1231","Casa Amarela","Pinheirinho","88805412",cid1, cli2);
 		enderecoRepository.saveAll(Arrays.asList(end1));
 		cli1.getEnderecos().add(end1);
+		cli2.getEnderecos().add(end2);
 		//
 		//
 		OrdemDeServico os1 = new OrdemDeServico(null, System.currentTimeMillis(), cli1, "Celular Estragado", EstadoAtendimento.ABERTA);
-		ordemDeServicoRepository.saveAll(Arrays.asList(os1));
+		OrdemDeServico os2 = new OrdemDeServico(null, System.currentTimeMillis(), cli2, "Celular Estragado", EstadoAtendimento.ATENDIMENTO);
+		ordemDeServicoRepository.saveAll(Arrays.asList(os1, os2));
 		cli1.getOrdensDeServico().addAll(Arrays.asList(os1));
+		cli2.getOrdensDeServico().addAll(Arrays.asList(os2));
+		//
+		//
+		Equipamento e1 = new Equipamento(null, "Celular Samsung", TipoEquipamento.ELETRONICO,"Samsung", cli1, os1);
+		Equipamento e2 = new Equipamento(null, "LG K10", TipoEquipamento.ELETRONICO,"LG", cli1, os2);
+		equipamentoRepository.saveAll(Arrays.asList(e1, e2));
+		os1.getEquipamentos().addAll(Arrays.asList(e1));
+		os1.getEquipamentos().addAll(Arrays.asList(e2));
+		cli1.getEquipamentos().addAll(Arrays.asList(e1));
+		cli2.getEquipamentos().addAll(Arrays.asList(e2));
 
 
 	}

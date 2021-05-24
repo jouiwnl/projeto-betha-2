@@ -39,12 +39,4 @@ public class ClienteResource {
         return ResponseEntity.ok().body(obj);
     }
 
-    @RequestMapping(value="/ordensDeServico", method=RequestMethod.GET)
-    public ResponseEntity<List<OrdemDeServico>> findAllOrdemServico() {
-        List<OrdemDeServico> obj = ordemService.findAll();
-        return ResponseEntity.ok().body(obj);
-    }
-    
-
-
 }

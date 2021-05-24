@@ -30,14 +30,20 @@ public class Equipamento implements Serializable {
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name="ordem_id")
+    private OrdemDeServico ordemDeServico;
+
     public Equipamento() {}
 
-    public Equipamento(Integer id, String nome, TipoEquipamento tipo, String marca, Cliente cliente) {
+    public Equipamento(Integer id, String nome, TipoEquipamento tipo, String marca, Cliente cliente, OrdemDeServico ordemDeServico) {
         this.id = id;
         this.nome = nome;
         this.tipo = (tipo == null) ? null : tipo.getCod();
         this.marca = marca;
         this.cliente = cliente;
+        this.ordemDeServico = ordemDeServico;
     }
 
     
