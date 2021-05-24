@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping(value = "/estados")
@@ -21,6 +23,9 @@ public class EstadoResource {
 
     @Autowired
     EstadoService service;
+
+    @Autowired
+    CidadeService cidadeService;
 
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<List<Estado>> findAll() {
@@ -33,6 +38,20 @@ public class EstadoResource {
         Estado obj = service.find(id);
         return ResponseEntity.ok().body(obj);
     }
+
+    @RequestMapping(value="/cidades/{id}", method=RequestMethod.GET)
+    public ResponseEntity<Cidade> findCidades(@PathVariable Integer id) {
+        Cidade obj = cidadeService.find(id);
+        return ResponseEntity.ok().body(obj);
+    }
+
+    @RequestMapping(value="/cidades", method=RequestMethod.GET)
+    public ResponseEntity<List<Cidade>> findAllCidades() {
+        List<Cidade> obj = cidadeService.findAll();
+        return ResponseEntity.ok().body(obj);
+     
+    }
+    
 
 
 }
