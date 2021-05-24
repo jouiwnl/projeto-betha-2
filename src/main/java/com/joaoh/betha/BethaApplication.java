@@ -1,6 +1,7 @@
 package com.joaoh.betha;
 
 import com.joaoh.betha.domain.*;
+import com.joaoh.betha.domain.enums.EstadoAtendimento;
 import com.joaoh.betha.domain.enums.TipoEquipamento;
 import com.joaoh.betha.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,9 @@ public class BethaApplication implements CommandLineRunner {
 
 	@Autowired
 	private EnderecoRepository enderecoRepository;
+
+	@Autowired
+	private OrdemDeServicoRepository ordemDeServicoRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(BethaApplication.class, args);
@@ -60,6 +64,11 @@ public class BethaApplication implements CommandLineRunner {
 		Endereco end1 = new Endereco(null,"Rua 1","13","Casa Azul","Santa Augusta","88805412",cid1, cli1);
 		enderecoRepository.saveAll(Arrays.asList(end1));
 		cli1.getEnderecos().add(end1);
+		//
+		//
+		OrdemDeServico os1 = new OrdemDeServico(null, System.currentTimeMillis(), cli1, "Celular Estragado", EstadoAtendimento.ABERTA);
+		ordemDeServicoRepository.saveAll(Arrays.asList(os1));
+		cli1.getOrdensDeServico().addAll(Arrays.asList(os1));
 
 
 	}
