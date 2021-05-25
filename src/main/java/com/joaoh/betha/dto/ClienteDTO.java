@@ -6,7 +6,6 @@ import java.util.List;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 import com.joaoh.betha.domain.Cliente;
@@ -38,11 +37,11 @@ public class ClienteDTO implements Serializable {
 
 
     public ClienteDTO(Cliente obj) {
-        this.id = obj.getId();
-        this.nome = obj.getNome();
-        this.email = obj.getEmail();
-        this.telefone = obj.getTelefone();
-        this.ordens = obj.getOrdensDeServico();
+        id = obj.getId();
+        nome = obj.getNome();
+        email = obj.getEmail();
+        telefone = obj.getTelefone();
+        ordens = obj.getOrdensDeServico();
     }
 
     

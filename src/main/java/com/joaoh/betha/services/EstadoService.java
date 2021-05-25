@@ -1,9 +1,7 @@
 package com.joaoh.betha.services;
 
-import com.joaoh.betha.domain.Equipamento;
 import com.joaoh.betha.domain.Estado;
 import com.joaoh.betha.repositories.CidadeRepository;
-import com.joaoh.betha.repositories.EquipamentoRepository;
 import com.joaoh.betha.repositories.EstadoRepository;
 import com.joaoh.betha.services.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -13,6 +13,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ClienteNewDTO implements Serializable {
+    
     @NotBlank(message = "Preenchimento obrigatório")
 	@Size(min=5, max=120, message="O tamanho deve ser entre 5 e 120 caracteres")
     private String nome;
@@ -24,6 +25,7 @@ public class ClienteNewDTO implements Serializable {
     @NotBlank(message = "Preenchimento obrigatório")
     private String telefone;
 
+    //ENDERECOS
     @NotBlank(message = "Preenchimento obrigatório")
     private String rua;
 
@@ -36,9 +38,9 @@ public class ClienteNewDTO implements Serializable {
     private String cep;
 
     private Integer cidadeId;
+    //
+
 
     public ClienteNewDTO() {}
-
-
 
 }

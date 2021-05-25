@@ -1,7 +1,7 @@
 package com.joaoh.betha.resources.exceptions;
 
 
-import com.joaoh.betha.services.exceptions.DataIntegrityViolationException;
+import com.joaoh.betha.services.exceptions.DataIntegrityException;
 import com.joaoh.betha.services.exceptions.ObjectNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,8 +19,8 @@ public class ResourceExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
     };
 
-    @ExceptionHandler(DataIntegrityViolationException.class)
-    public ResponseEntity<StandardError> dataIntegrity(DataIntegrityViolationException exception, HttpServletRequest request) {
+    @ExceptionHandler(DataIntegrityException.class)
+    public ResponseEntity<StandardError> dataIntegrity(DataIntegrityException exception, HttpServletRequest request) {
         StandardError error = new StandardError(System.currentTimeMillis(), HttpStatus.BAD_REQUEST.value(),"Integridade de dados" , exception.getMessage(), request.getRequestURI());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
     };

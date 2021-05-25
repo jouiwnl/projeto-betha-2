@@ -15,9 +15,6 @@ import java.util.Arrays;
 public class BethaApplication implements CommandLineRunner {
 
 	@Autowired
-	private EquipamentoRepository equipamentoRepository;
-
-	@Autowired
 	private EstadoRepository estadoRepository;
 
 	@Autowired
@@ -63,21 +60,13 @@ public class BethaApplication implements CommandLineRunner {
 		cli2.getEnderecos().add(end2);
 		//
 		//
-		OrdemDeServico os1 = new OrdemDeServico(null, System.currentTimeMillis(), cli1, "Celular Estragado", EstadoAtendimento.ABERTA);
-		OrdemDeServico os2 = new OrdemDeServico(null, System.currentTimeMillis(), cli2, "Celular Estragado", EstadoAtendimento.ATENDIMENTO);
+		OrdemDeServico os1 = new OrdemDeServico(null, System.currentTimeMillis(), cli1, "Estragou o pc", EstadoAtendimento.ABERTA, "Computador DELL", "DELL", TipoEquipamento.ELETRONICO);
+		OrdemDeServico os2 = new OrdemDeServico(null, System.currentTimeMillis(), cli2, "Quebrou retrovisor", EstadoAtendimento.ABERTA, "Corsa", "Chrevolet", TipoEquipamento.AUTOMOTIVO);
 		ordemDeServicoRepository.saveAll(Arrays.asList(os1, os2));
 		cli1.getOrdensDeServico().addAll(Arrays.asList(os1));
 		cli2.getOrdensDeServico().addAll(Arrays.asList(os2));
 		//
 		//
-		Equipamento e1 = new Equipamento(null, "Celular Samsung", TipoEquipamento.ELETRONICO,"Samsung", cli1, os1);
-		Equipamento e2 = new Equipamento(null, "LG K10", TipoEquipamento.ELETRONICO,"LG", cli1, os2);
-		equipamentoRepository.saveAll(Arrays.asList(e1, e2));
-		os1.getEquipamentos().addAll(Arrays.asList(e1));
-		os1.getEquipamentos().addAll(Arrays.asList(e2));
-		cli1.getEquipamentos().addAll(Arrays.asList(e1));
-		cli2.getEquipamentos().addAll(Arrays.asList(e2));
-
 
 	}
 
