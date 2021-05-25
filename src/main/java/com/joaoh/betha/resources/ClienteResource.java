@@ -7,7 +7,9 @@ import java.util.stream.Collectors;
 import javax.validation.Valid;
 
 import com.joaoh.betha.domain.Cliente;
+import com.joaoh.betha.domain.OrdemDeServico;
 import com.joaoh.betha.dto.ClienteDTO;
+import com.joaoh.betha.dto.OrdemDeServicoNewDTO;
 import com.joaoh.betha.services.ClienteService;
 import com.joaoh.betha.services.OrdemDeServicoService;
 
@@ -77,6 +79,7 @@ public class ClienteResource {
 		Page<ClienteDTO> listDto = list.map(obj -> new ClienteDTO(obj));  
 		return ResponseEntity.ok().body(listDto);
 	}
+
     
 
 }

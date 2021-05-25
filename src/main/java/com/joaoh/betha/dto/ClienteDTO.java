@@ -31,8 +31,6 @@ public class ClienteDTO implements Serializable {
     @NotBlank(message = "Preenchimento obrigatório")
     private String telefone;
 
-    private List<OrdemDeServico> ordens = new ArrayList<>();
-
     public ClienteDTO() {}
 
 
@@ -41,7 +39,6 @@ public class ClienteDTO implements Serializable {
         nome = obj.getNome();
         email = obj.getEmail();
         telefone = obj.getTelefone();
-        ordens = obj.getOrdensDeServico();
     }
 
     
