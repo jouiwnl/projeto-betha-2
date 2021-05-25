@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
@@ -20,15 +21,15 @@ public class ClienteDTO implements Serializable {
     
     private Integer id;
     
-    @NotEmpty(message = "Preenchimento obrigatório")
+    @NotBlank(message = "Preenchimento obrigatório")
     @Size(min = 5, max = 100, message = "O nome precisa ter entre 5 e 100 caracteres")
     private String nome;
     
-    @NotEmpty(message = "Preenchimento obrigatório")
+    @NotBlank(message = "Preenchimento obrigatório")
     @Email(message = "Email inválido")
     private String email;
 
-    @NotEmpty(message = "Preenchimento Obrigatório")
+    @NotBlank(message = "Preenchimento obrigatório")
     private String telefone;
 
     private List<OrdemDeServico> ordens = new ArrayList<>();
