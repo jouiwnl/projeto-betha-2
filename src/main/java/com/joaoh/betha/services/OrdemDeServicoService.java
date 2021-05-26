@@ -6,6 +6,7 @@ import java.util.Optional;
 import com.joaoh.betha.domain.Cliente;
 import com.joaoh.betha.domain.OrdemDeServico;
 import com.joaoh.betha.domain.enums.EstadoAtendimento;
+import com.joaoh.betha.dto.OrdemDeServicoDTO;
 import com.joaoh.betha.dto.OrdemDeServicoNewDTO;
 import com.joaoh.betha.repositories.OrdemDeServicoRepository;
 import com.joaoh.betha.services.exceptions.DataIntegrityException;
@@ -51,10 +52,14 @@ public class OrdemDeServicoService {
 		return repo.findAll(pageRequest);
 	}
 
+    public OrdemDeServico fromDTO(OrdemDeServicoDTO objDto) { 
+		return new OrdemDeServico(null, null, null, objDto.getDetalhe(), objDto.getEstadoAtendimento(), null, null, null);
+    }
+
     public OrdemDeServico fromDTO(OrdemDeServicoNewDTO objDto) {
         Cliente cli = new Cliente(objDto.getClienteId(), null, null, null);
-
-		return new OrdemDeServico(null, System.currentTimeMillis(), cli, objDto.getDetalhe(), EstadoAtendimento.ABERTA, objDto.getNomeEquipamento(), objDto.getMarcaEquipamento(), objDto.getTipoEquipamento()); 
+       
+        return new OrdemDeServico(null, System.currentTimeMillis(), cli, objDto.getDetalhe(), EstadoAtendimento.ABERTA, objDto.getNomeEquipamento(), objDto.getMarcaEquipamento(), objDto.getTipoEquipamento());
     }
 
     public void delete(Integer id) {
@@ -65,6 +70,17 @@ public class OrdemDeServicoService {
         } else if (obj.getEstadoAtendimento() == EstadoAtendimento.CONLUIDA) {
             repo.deleteById(id);
         }
-		
 	}
+
+    public OrdemDeServico update(OrdemDeServico obj) {
+		OrdemDeServico newObj = find(obj.getId());
+		updateData(newObj, obj);
+		return repo.save(newObj);
+	}
+
+    private void updateData(OrdemDeServico newObj, OrdemDeServico obj) {
+		newObj.setDetalhe(obj.getDetalhe());
+		newObj.setEstadoAtendimento(obj.getEstadoAtendimento());
+	}
+
 }

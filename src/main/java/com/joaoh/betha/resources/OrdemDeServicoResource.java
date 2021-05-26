@@ -62,15 +62,13 @@ public class OrdemDeServicoResource {
 		return ResponseEntity.noContent().build();
 	}
 
-    /*
     @RequestMapping(value="/{id}", method=RequestMethod.PUT)
-	public ResponseEntity<Void> update(@Valid @RequestBody OrdemDeServicoNewDTO objDto, @PathVariable Integer id) {
-		OrdemDeServicoNewDTO obj = service.fromDTO(objDto);
+	public ResponseEntity<Void> update(@Valid @RequestBody OrdemDeServicoDTO objDto, @PathVariable Integer id) {
+		OrdemDeServico obj = service.fromDTO(objDto);
 		obj.setId(id);
 		obj = service.update(obj);
 		return ResponseEntity.noContent().build();
 	}
-    */
 
     
     

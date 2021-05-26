@@ -16,6 +16,8 @@ public class OrdemDeServicoDTO implements Serializable{
 
     private String detalhe;
     private Integer estadoAtendimento;
+
+    public OrdemDeServicoDTO() {}
     
     public OrdemDeServicoDTO(OrdemDeServico obj) {
         id = obj.getId();
