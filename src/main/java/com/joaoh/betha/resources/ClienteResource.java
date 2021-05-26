@@ -80,6 +80,12 @@ public class ClienteResource {
 		return ResponseEntity.ok().body(listDto);
 	}
 
+    @RequestMapping(value = "/{clienteId}/ordens", method = RequestMethod.GET)
+    public ResponseEntity<List<OrdemDeServico>> findAllOrdens(@PathVariable Integer clienteId) {
+        List<OrdemDeServico> obj = ordemService.findByCliente(clienteId);
+		return ResponseEntity.ok().body(obj);
+    }
+
     
 
 }
