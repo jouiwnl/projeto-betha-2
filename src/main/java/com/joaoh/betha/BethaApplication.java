@@ -62,7 +62,7 @@ public class BethaApplication implements CommandLineRunner {
 		//
 		//
 		OrdemDeServico os1 = new OrdemDeServico(null, System.currentTimeMillis(), cli1, "Estragou o pc", EstadoAtendimento.ABERTA, "Computador DELL", "DELL", TipoEquipamento.ELETRONICO);
-		OrdemDeServico os2 = new OrdemDeServico(null, System.currentTimeMillis(), cli2, "Quebrou retrovisor", EstadoAtendimento.ABERTA, "Corsa", "Chrevolet", TipoEquipamento.AUTOMOTIVO);
+		OrdemDeServico os2 = new OrdemDeServico(null, System.currentTimeMillis(), cli2, "Quebrou retrovisor", EstadoAtendimento.CONLUIDA, "Corsa", "Chrevolet", TipoEquipamento.AUTOMOTIVO);
 		ordemDeServicoRepository.saveAll(Arrays.asList(os1, os2));
 		cli1.getOrdensDeServico().addAll(Arrays.asList(os1));
 		cli2.getOrdensDeServico().addAll(Arrays.asList(os2));
