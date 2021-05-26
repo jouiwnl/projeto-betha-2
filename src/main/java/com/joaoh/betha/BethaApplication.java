@@ -38,7 +38,8 @@ public class BethaApplication implements CommandLineRunner {
 		//
 		Estado est1 = new Estado(null, "Santa catarina");
 		Estado est2 = new Estado(null, "Minas Gerais");
-		estadoRepository.saveAll(Arrays.asList(est1, est2));
+		Estado est3 = new Estado(null, "São Paulo");
+		estadoRepository.saveAll(Arrays.asList(est1, est2, est3));
 		//
 		//
 		Cidade cid1 = new Cidade(null, "Criciuma", est1);
